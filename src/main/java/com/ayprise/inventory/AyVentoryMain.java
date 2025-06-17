@@ -1,4 +1,4 @@
-package com.ayprise;
+package com.ayprise.inventory;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
