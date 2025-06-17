@@ -1,5 +1,6 @@
-package com.ayprise.inventory.model;
+package com.ayprise.inventory.controller;
 
+import com.ayprise.inventory.model.Purchase;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
