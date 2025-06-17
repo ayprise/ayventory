@@ -12,7 +12,7 @@ import java.util.List;
  * @param purchaseDate time of the purchase
  * @param products list of products in this purchase
  */
-@Builder
+@Builder(setterPrefix = "with")
 public record Purchase(String vendorName,
                        String orderNumber,
                        LocalDate purchaseDate,

@@ -5,10 +5,12 @@ import lombok.Builder;
 /**
  * Product data class
  *
- * @param name - of the Product
- * @param category - of the Product
- * @param description - for the Product
+ * @param name Name of the Product
+ * @param category Product category
+ * @param description Description of the Product
  */
-@Builder
-public record Product(String name, String category, String description) {
+@Builder(setterPrefix = "with")
+public record Product(String name,
+                      String category,
+                      String description) {
 }
