@@ -1,11 +1,11 @@
-package com.ayprise;
+package com.ayprise.inventory;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Main {
+public class AyVentoryMain {
     public static void main(String[] args) {
-        SpringApplication.run(Main.class, args);
+        SpringApplication.run(AyVentoryMain.class, args);
     }
 }
