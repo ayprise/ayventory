@@ -2,6 +2,8 @@ package com.ayprise.inventory.model;
 
 import java.util.List;
 
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -39,7 +41,7 @@ public class PurchaseTests {
         Purchase purchase1 = Purchase.builder()
                 .withVendorName("Target")
                 .withOrderNumber("TEST-001")
-                .withPurchaseDate(java.time.LocalDate.now())
+                .withPurchaseDate(LocalDate.now())
                 .withItems(List.of(switch2Purchase1, airpodsPurchase1))
                 .build();
 
@@ -59,7 +61,7 @@ public class PurchaseTests {
         Purchase purchase2 = Purchase.builder()
                 .withVendorName("Target")
                 .withOrderNumber("TEST-002")
-                .withPurchaseDate(java.time.LocalDate.now())
+                .withPurchaseDate(LocalDate.now())
                 .withItems(List.of(switch2Purchase2))
                 .build();
 
@@ -76,7 +78,7 @@ public class PurchaseTests {
         Purchase purchase3 = Purchase.builder()
                 .withVendorName("Target")
                 .withOrderNumber("TEST-003")
-                .withPurchaseDate(java.time.LocalDate.now())
+                .withPurchaseDate(LocalDate.now())
                 .withItems(List.of(switch2Purchase3))
                 .build();
 
@@ -110,7 +112,7 @@ public class PurchaseTests {
         Purchase purchase4 = Purchase.builder()
                 .withVendorName("Target")
                 .withOrderNumber("TEST-004")
-                .withPurchaseDate(java.time.LocalDate.now())
+                .withPurchaseDate(LocalDate.now())
                 .withItems(List.of(switch2Purchase1, switch2Purchase2, switch2Purchase3))
                 .build();
         double total = purchase4.getTotal();
@@ -136,13 +138,13 @@ public class PurchaseTests {
         Purchase purchase5 = Purchase.builder()
                 .withVendorName("Target")
                 .withOrderNumber("TEST-005")
-                .withPurchaseDate(java.time.LocalDate.now())
+                .withPurchaseDate(LocalDate.now())
                 .withItems(List.of(airpodsPurchase2))
                 .build();
         Purchase purchase6 = Purchase.builder()
                 .withVendorName("Target")
                 .withOrderNumber("TEST-006")
-                .withPurchaseDate(java.time.LocalDate.now())
+                .withPurchaseDate(LocalDate.now())
                 .withItems(List.of(airpodsPurchase1, airpodsPurchase2))
                 .build();
 
