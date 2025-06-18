@@ -26,6 +26,7 @@ public class PurchaseTests {
     @Test
     @DisplayName("Create a purchase and test the total cost")
     void getTotalTest() {
+
         final var switch2Purchase1 = PurchaseItem.builder()
                 .withProduct(SWITCH2PRODUCT)
                 .withPrice(499.99)
@@ -54,6 +55,7 @@ public class PurchaseTests {
     @Test
     @DisplayName("Create purchases with no quantity or price test the total cost is 0")
     void getTotalTest2() {
+
         final var switch2Purchase2 = PurchaseItem.builder()
                 .withProduct(SWITCH2PRODUCT)
                 .withPrice(499.99)
@@ -92,6 +94,7 @@ public class PurchaseTests {
     @Test
     @DisplayName("Test the total cost when only some items have no price or quantity")
     void getTotalTest3() {
+
         final var switch2Purchase1 = PurchaseItem.builder()
                 .withProduct(SWITCH2PRODUCT)
                 .withPrice(499.99)
@@ -127,6 +130,7 @@ public class PurchaseTests {
     @Test
     @DisplayName("Test the total cost when some items have no sales tax")
     void getTotalTest4() {
+
         final var airpodsPurchase1 = PurchaseItem.builder()
                 .withProduct(AIRPODS2PRODUCT)
                 .withPrice(199.99)
