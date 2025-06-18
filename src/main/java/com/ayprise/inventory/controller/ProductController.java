@@ -10,12 +10,16 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Map;
 
 @RestController
+@RequestMapping("/inventory/product/{id}")
 public class ProductController {
     private final Map<String, Product> products = Map.of("1", new Product("Airpods Pro 2",
-            "Electronics",
-            "Apple Headphones"));
+                    "Electronics",
+                    "Apple Headphones"),
+            "2", new Product("Switch 2 Mario Kart Bundle",
+                    "Electronics",
+                    "Nintendo Switch 2 Mario Kart Bundle"));
 
-    @GetMapping(name = "/inventory/product/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(name = "/create", produces = MediaType.APPLICATION_JSON_VALUE)
     public Product get(@PathVariable("id") String id) {
         var product = products.get(id);
         if (product == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
