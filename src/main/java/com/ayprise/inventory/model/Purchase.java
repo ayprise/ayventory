@@ -26,8 +26,7 @@ public record Purchase(String vendorName,
 
     public double getTotal() {
         return items.stream()
-                .mapToDouble(
-                        item -> (item.price() + item.salesTax()) * item.quantity())
+                .mapToDouble(item -> (item.price() + item.salesTax()) * item.quantity())
                 .sum();
     }
 }
