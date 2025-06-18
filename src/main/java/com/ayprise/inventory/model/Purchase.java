@@ -10,16 +10,25 @@ import java.util.List;
  * @param vendorName name of the vendor
  * @param orderNumber purchase order number
  * @param purchaseDate time of the purchase
- * @param products list of products in this purchase
+ * @param receipt list of items bought with purchase
  */
 @Builder(setterPrefix = "with")
 public record Purchase(String vendorName,
                        String orderNumber,
                        LocalDate purchaseDate,
-                       List<Product> products) {
+                       List<PurchaseItem> receipt) {
 
     public Purchase {
-        // Ensure immutability of products in the purchase
-        products = List.copyOf(products);
+        // Ensure immutability of items in the purchase
+        receipt = List.copyOf(receipt);
+    }
+
+    public double getTotal() {
+        double total = 0;
+        for (PurchaseItem item : receipt) {
+            total += (item.price() + item.salesTax()) * item.quantity();
+        }
+
+        return total;
     }
 }
