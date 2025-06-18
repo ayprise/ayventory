@@ -16,6 +16,7 @@ public class PurchaseTests {
             .withCategory("Electronics")
             .withDescription("Nintendo Switch 2 Mario Kart Bundle")
             .build();
+
     private final static Product AIRPODS2PRODUCT = Product.builder()
             .withName("Airpods Pro 2")
             .withCategory("Electronics")
@@ -26,18 +27,21 @@ public class PurchaseTests {
     @Test
     @DisplayName("Create a purchase and test the total cost")
     void getTotalTest() {
+
         final var switch2Purchase1 = PurchaseItem.builder()
                 .withProduct(SWITCH2PRODUCT)
                 .withPrice(499.99)
                 .withQuantity(2)
                 .withSalesTax(30.00)
                 .build();
+
         final var airpodsPurchase1 = PurchaseItem.builder()
                 .withProduct(AIRPODS2PRODUCT)
                 .withPrice(199.99)
                 .withQuantity(1)
                 .withSalesTax(12.00)
                 .build();
+
         final var purchase1 = Purchase.builder()
                 .withVendorName("Target")
                 .withOrderNumber("TEST-001")
@@ -52,12 +56,14 @@ public class PurchaseTests {
     @Test
     @DisplayName("Create purchases with no quantity or price test the total cost is 0")
     void getTotalTest2() {
+
         final var switch2Purchase2 = PurchaseItem.builder()
                 .withProduct(SWITCH2PRODUCT)
                 .withPrice(499.99)
                 .withQuantity(0)
                 .withSalesTax(30.00)
                 .build();
+
         final var purchase2 = Purchase.builder()
                 .withVendorName("Target")
                 .withOrderNumber("TEST-002")
@@ -75,6 +81,7 @@ public class PurchaseTests {
                 .withQuantity(1)
                 .withSalesTax(0)
                 .build();
+
         final var purchase3 = Purchase.builder()
                 .withVendorName("Target")
                 .withOrderNumber("TEST-003")
@@ -90,18 +97,21 @@ public class PurchaseTests {
     @Test
     @DisplayName("Test the total cost when only some items have no price or quantity")
     void getTotalTest3() {
+
         final var switch2Purchase1 = PurchaseItem.builder()
                 .withProduct(SWITCH2PRODUCT)
                 .withPrice(499.99)
                 .withQuantity(2)
                 .withSalesTax(30.00)
                 .build();
+
         final var switch2Purchase2 = PurchaseItem.builder()
                 .withProduct(SWITCH2PRODUCT)
                 .withPrice(499.99)
                 .withQuantity(0)
                 .withSalesTax(30.00)
                 .build();
+
         final var switch2Purchase3 = PurchaseItem.builder()
                 .withProduct(SWITCH2PRODUCT)
                 .withPrice(0.00)
@@ -115,6 +125,7 @@ public class PurchaseTests {
                 .withPurchaseDate(LocalDate.now())
                 .withItems(List.of(switch2Purchase1, switch2Purchase2, switch2Purchase3))
                 .build();
+
         var total = purchase4.getTotal();
         assertEquals(1059.98, total);
     }
@@ -123,24 +134,28 @@ public class PurchaseTests {
     @Test
     @DisplayName("Test the total cost when some items have no sales tax")
     void getTotalTest4() {
+
         final var airpodsPurchase1 = PurchaseItem.builder()
                 .withProduct(AIRPODS2PRODUCT)
                 .withPrice(199.99)
                 .withQuantity(1)
                 .withSalesTax(12.00)
                 .build();
+
         final var airpodsPurchase2 = PurchaseItem.builder()
                 .withProduct(AIRPODS2PRODUCT)
                 .withPrice(199.99)
                 .withQuantity(2)
                 .withSalesTax(0)
                 .build();
+
         final var purchase5 = Purchase.builder()
                 .withVendorName("Target")
                 .withOrderNumber("TEST-005")
                 .withPurchaseDate(LocalDate.now())
                 .withItems(List.of(airpodsPurchase2))
                 .build();
+
         final var purchase6 = Purchase.builder()
                 .withVendorName("Target")
                 .withOrderNumber("TEST-006")
