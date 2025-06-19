@@ -1,6 +1,7 @@
 package com.ayprise.inventory.controller;
 
 import com.ayprise.inventory.model.Purchase;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.MediaType;
 
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@Tag(name = "Purchase")
 @RequestMapping("/inventory/purchase")
 public class PurchaseController {
     private final List<Purchase> purchases = new ArrayList<>();
