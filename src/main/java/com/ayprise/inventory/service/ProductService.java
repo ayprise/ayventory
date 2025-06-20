@@ -16,7 +16,7 @@ public class ProductService {
                 .orElse(null);
     }
 
-    public void addNewProduct(Product product) {
+    public void addProduct(Product product) {
         productRepository.save(product);
     }
 }

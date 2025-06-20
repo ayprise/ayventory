@@ -1,19 +1,16 @@
 package com.ayprise.inventory.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.*;
 
 /**
  * Represents a product in the inventory.
- *
+ * <p>
  * This class is used to model the essential properties of a product,
  * including its unique identifier, name, category, and description.
  * It is annotated for persistence with JPA.
- *
- * The class utilizes Lombok annotations for boilerplate reduction,
- * providing automatic generation of getter and setter methods, a no-argument
- * constructor, and a required-arguments constructor.
- *
+ * <p>
  * Annotations:
  * - @Entity: Specifies that the class is an entity managed by JPA.
  * - @Table: Defines the table name in the database as "product".
@@ -27,10 +24,11 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "product")
-@RequiredArgsConstructor
 public class Product {
     @Id
+    @Schema(hidden = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
