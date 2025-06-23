@@ -1,4 +1,4 @@
-package com.ayprise.inventory.model;
+package com.ayprise.inventory.entity;
 
 import lombok.Builder;
 
