@@ -1,32 +1,35 @@
 package com.ayprise.inventory.entity;
 
-import lombok.Builder;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
-/**
- * Purchases data class
- *
- * @param vendorName   name of the vendor
- * @param orderNumber  purchase order number
- * @param purchaseDate time of the purchase
- * @param items        list of items bought with purchase
- */
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "purchase")
 @Builder(setterPrefix = "with")
-public record Purchase(String vendorName,
-                       String orderNumber,
-                       LocalDate purchaseDate,
-                       List<PurchaseItem> items) {
+public class Purchase {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-    public Purchase {
-        // Ensure immutability of items in the purchase
-        items = List.copyOf(items);
-    }
+    @Column(unique = true)
+    private String orderNumber;
+
+    private String vendorName;
+    private LocalDate purchaseDate;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    private List<PurchaseItem> items;
 
     public double getTotal() {
         return items.stream()
-                .mapToDouble(item -> (item.price() + item.salesTax()) * item.quantity())
+                .mapToDouble(item -> (item.getPrice() + item.getSalesTax()) * item.getQuantity())
                 .sum();
     }
 }

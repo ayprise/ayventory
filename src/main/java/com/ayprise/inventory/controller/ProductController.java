@@ -1,9 +1,9 @@
 package com.ayprise.inventory.controller;
 
 
-import com.ayprise.inventory.model.CreateProductRequest;
-import com.ayprise.inventory.model.CreateProductResponse;
-import com.ayprise.inventory.model.GetProductResponse;
+import com.ayprise.inventory.model.product.CreateProductRequest;
+import com.ayprise.inventory.model.product.CreateProductResponse;
+import com.ayprise.inventory.model.product.GetProductResponse;
 import com.ayprise.inventory.service.ProductService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

@@ -1,10 +1,24 @@
 package com.ayprise.inventory.entity;
 
-import lombok.Builder;
+import jakarta.persistence.*;
+import lombok.*;
 
+@Getter
+@Setter
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder(setterPrefix = "with")
-public record PurchaseItem(Product product,
-                           int quantity,
-                           double price,
-                           double salesTax) {
+public final class PurchaseItem {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @OneToOne
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    private Product product;
+    private int quantity;
+    private double price;
+    private double salesTax;
+
 }

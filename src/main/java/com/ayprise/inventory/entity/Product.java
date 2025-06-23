@@ -29,7 +29,6 @@ import lombok.*;
 @Builder(setterPrefix = "with")
 public class Product {
     @Id
-    @Schema(hidden = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
