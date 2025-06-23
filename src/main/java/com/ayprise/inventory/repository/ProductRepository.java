@@ -1,7 +1,7 @@
 package com.ayprise.inventory.repository;
 
 
-import com.ayprise.inventory.model.Product;
+import com.ayprise.inventory.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

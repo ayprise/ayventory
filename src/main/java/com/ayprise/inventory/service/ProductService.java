@@ -1,9 +1,12 @@
 package com.ayprise.inventory.service;
 
-import com.ayprise.inventory.model.Product;
+import com.ayprise.inventory.entity.Product;
 import com.ayprise.inventory.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -16,7 +19,12 @@ public class ProductService {
                 .orElse(null);
     }
 
-    public void addProduct(Product product) {
-        productRepository.save(product);
+    public Optional<Long> addProduct(Product product) {
+        try {
+            final var savedProduct = productRepository.save(product);
+            return Optional.of(savedProduct.getId());
+        } catch (DataIntegrityViolationException e) {
+            return Optional.empty();
+        }
     }
 }

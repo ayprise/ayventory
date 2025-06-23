@@ -1,4 +1,4 @@
-package com.ayprise.inventory.model;
+package com.ayprise.inventory.entity;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
@@ -26,6 +26,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "product")
+@Builder(setterPrefix = "with")
 public class Product {
     @Id
     @Schema(hidden = true)

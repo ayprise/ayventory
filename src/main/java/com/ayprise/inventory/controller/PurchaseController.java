@@ -1,6 +1,6 @@
 package com.ayprise.inventory.controller;
 
-import com.ayprise.inventory.model.Purchase;
+import com.ayprise.inventory.entity.Purchase;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.MediaType;
