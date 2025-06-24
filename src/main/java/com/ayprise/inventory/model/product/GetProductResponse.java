@@ -1,6 +1,6 @@
 package com.ayprise.inventory.model.product;
 
-import com.ayprise.inventory.entity.Product;
+import com.ayprise.inventory.entity.ProductEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ public class GetProductResponse {
     private final String category;
     private final String description;
 
-    public static GetProductResponse fromProduct(Product product) {
+    public static GetProductResponse fromProduct(ProductEntity product) {
         return GetProductResponse.builder()
                 .withId(product.getId())
                 .withName(product.getName())

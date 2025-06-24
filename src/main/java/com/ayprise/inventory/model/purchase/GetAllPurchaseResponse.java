@@ -1,6 +1,6 @@
 package com.ayprise.inventory.model.purchase;
 
-import com.ayprise.inventory.entity.Purchase;
+import com.ayprise.inventory.entity.PurchaseEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -13,9 +13,9 @@ import java.util.List;
 @RequiredArgsConstructor
 @Builder(setterPrefix = "with")
 public class GetAllPurchaseResponse {
-    private final List<Purchase> purchases;
+    private final List<PurchaseEntity> purchases;
 
-    public static GetAllPurchaseResponse fromPurchases(List<Purchase> purchases) {
+    public static GetAllPurchaseResponse fromPurchases(List<PurchaseEntity> purchases) {
         return GetAllPurchaseResponse.builder()
                 .withPurchases(purchases)
                 .build();

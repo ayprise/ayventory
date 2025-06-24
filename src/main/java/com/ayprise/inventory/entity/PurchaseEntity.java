@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "purchase")
 @Builder(setterPrefix = "with")
-public class Purchase {
+public class PurchaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -25,7 +25,7 @@ public class Purchase {
     private LocalDate purchaseDate;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
-    private List<PurchaseItem> items;
+    private List<PurchaseItemEntity> items;
 
     public double getTotal() {
         return items.stream()

@@ -1,6 +1,6 @@
 package com.ayprise.inventory.service;
 
-import com.ayprise.inventory.entity.Purchase;
+import com.ayprise.inventory.entity.PurchaseEntity;
 import com.ayprise.inventory.repository.PurchaseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -15,16 +15,16 @@ public class PurchaseService {
 
     private final PurchaseRepository purchaseRepository;
 
-    public Purchase getPurchase(long id) {
+    public PurchaseEntity getPurchase(long id) {
         return purchaseRepository.findById(id)
                 .orElse(null);
     }
 
-    public List<Purchase> getAllPurchases() {
+    public List<PurchaseEntity> getAllPurchases() {
         return purchaseRepository.findAll();
     }
 
-    public Optional<Long> addPurchase(Purchase purchase) {
+    public Optional<Long> addPurchase(PurchaseEntity purchase) {
         try {
             final var savedPurchase = purchaseRepository.save(purchase);
             return Optional.of(savedPurchase.getId());

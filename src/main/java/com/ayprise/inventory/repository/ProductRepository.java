@@ -1,14 +1,14 @@
 package com.ayprise.inventory.repository;
 
 
-import com.ayprise.inventory.entity.Product;
+import com.ayprise.inventory.entity.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
 
-    Optional<Product> findById(long id);
+    Optional<ProductEntity> findById(long id);
 }

@@ -1,7 +1,7 @@
 package com.ayprise.inventory.model.purchase;
 
-import com.ayprise.inventory.entity.Purchase;
-import com.ayprise.inventory.entity.PurchaseItem;
+import com.ayprise.inventory.entity.PurchaseEntity;
+import com.ayprise.inventory.entity.PurchaseItemEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -19,9 +19,9 @@ public class GetPurchaseResponse {
     private final String orderNumber;
     private final String vendorName;
     private final LocalDate purchaseDate;
-    private final List<PurchaseItem> items;
+    private final List<PurchaseItemEntity> items;
 
-    public static GetPurchaseResponse fromPurchase(Purchase purchase) {
+    public static GetPurchaseResponse fromPurchase(PurchaseEntity purchase) {
         return GetPurchaseResponse.builder()
                 .withId(purchase.getId())
                 .withOrderNumber(purchase.getOrderNumber())

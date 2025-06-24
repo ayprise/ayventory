@@ -1,7 +1,7 @@
 package com.ayprise.inventory.model.purchase;
 
-import com.ayprise.inventory.entity.Purchase;
-import com.ayprise.inventory.entity.PurchaseItem;
+import com.ayprise.inventory.entity.PurchaseEntity;
+import com.ayprise.inventory.entity.PurchaseItemEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -18,10 +18,10 @@ public class CreatePurchaseRequest {
     private final String orderNumber;
     private final String vendorName;
     private final LocalDate purchaseDate;
-    private final List<PurchaseItem> items;
+    private final List<PurchaseItemEntity> items;
 
-    public Purchase toPurchase() {
-        final var purchase = new Purchase();
+    public PurchaseEntity toPurchase() {
+        final var purchase = new PurchaseEntity();
         purchase.setOrderNumber(orderNumber);
         purchase.setVendorName(vendorName);
         purchase.setPurchaseDate(purchaseDate);
