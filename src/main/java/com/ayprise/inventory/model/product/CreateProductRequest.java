@@ -1,6 +1,6 @@
-package com.ayprise.inventory.model;
+package com.ayprise.inventory.model.product;
 
-import com.ayprise.inventory.entity.Product;
+import com.ayprise.inventory.entity.ProductEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -21,8 +21,8 @@ public class CreateProductRequest {
      * @return a Product entity with the name, category, and description
      *         mapped from the current CreateProductRequest instance.
      */
-    public Product toProduct() {
-        final var product = new Product();
+    public ProductEntity toProduct() {
+        final var product = new ProductEntity();
         product.setName(name);
         product.setCategory(category);
         product.setDescription(description);

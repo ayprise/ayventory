@@ -1,4 +1,4 @@
-package com.ayprise.inventory.model;
+package com.ayprise.inventory.model.purchase;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 @Jacksonized
 @RequiredArgsConstructor
 @Builder(setterPrefix = "with")
-public class CreateProductResponse {
+public class CreatePurchaseResponse {
     private final long id;
     private final HttpStatus status;
 }

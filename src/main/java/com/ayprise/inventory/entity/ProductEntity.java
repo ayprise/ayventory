@@ -1,6 +1,5 @@
 package com.ayprise.inventory.entity;
 
-import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,9 +26,8 @@ import lombok.*;
 @AllArgsConstructor
 @Table(name = "product")
 @Builder(setterPrefix = "with")
-public class Product {
+public class ProductEntity {
     @Id
-    @Schema(hidden = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
