@@ -19,6 +19,8 @@ public class CreatePurchaseRequest {
     private final String vendorName;
     private final LocalDate purchaseDate;
     private final List<PurchaseItemEntity> items;
+    private final double paymentAmount;
+    private final LocalDate paymentDate;
 
     public PurchaseEntity toPurchase() {
         final var purchase = new PurchaseEntity();
@@ -26,6 +28,8 @@ public class CreatePurchaseRequest {
         purchase.setVendorName(vendorName);
         purchase.setPurchaseDate(purchaseDate);
         purchase.setItems(items);
+        purchase.setPaymentAmount(paymentAmount);
+        purchase.setPaymentDate(paymentDate);
         return purchase;
     }
 }

@@ -24,7 +24,10 @@ public class PurchaseEntity {
     private String vendorName;
     private LocalDate purchaseDate;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    private double paymentAmount;
+    private LocalDate paymentDate;
+
+    @OneToMany(mappedBy = "purchase")
     private List<PurchaseItemEntity> items;
 
     public double getTotal() {

@@ -1,9 +1,6 @@
 package com.ayprise.inventory.controller;
 
-import com.ayprise.inventory.model.purchase.CreatePurchaseRequest;
-import com.ayprise.inventory.model.purchase.CreatePurchaseResponse;
-import com.ayprise.inventory.model.purchase.GetAllPurchaseResponse;
-import com.ayprise.inventory.model.purchase.GetPurchaseResponse;
+import com.ayprise.inventory.model.purchase.*;
 import com.ayprise.inventory.service.PurchaseService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.MediaType;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.time.LocalDate;
 
 @RestController
 @Tag(name = "Purchase")
@@ -39,6 +38,22 @@ public class PurchaseController {
         return CreatePurchaseResponse.builder()
                 .withId(optional.orElse(-1L))
                 .withStatus(optional.isPresent() ? HttpStatus.CREATED : HttpStatus.CONFLICT)
+                .build();
+    }
+
+    @PostMapping(value = "/{id}/payment", produces = MediaType.APPLICATION_JSON_VALUE)
+    public CreatePaymentResponse paymentPurchase(double paymentAmount, @PathVariable("id") long id) {
+        final var purchase = purchaseService.getPurchase(id);
+        if (purchase == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        purchase.setPaymentAmount(paymentAmount);
+        purchase.setPaymentDate(LocalDate.now());
+        return CreatePaymentResponse.builder()
+                .withId(id)
+                .withStatus(HttpStatus.OK)
+                .withPaymentAmount(paymentAmount)
+                .withPaymentDate(LocalDate.now())
                 .build();
     }
 

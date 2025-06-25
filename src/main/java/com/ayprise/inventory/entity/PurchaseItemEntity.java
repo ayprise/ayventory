@@ -14,6 +14,10 @@ public final class PurchaseItemEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @ManyToOne
+    @JoinColumn(name = "purchase_id", referencedColumnName = "id")
+    private PurchaseEntity purchase;
+
     @OneToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     private ProductEntity product;
